@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Desenvolvedor Java</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231e3a8a'/%3E%3Ctext x='50' y='70' font-family='Arial, sans-serif' font-size='50' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3EJS%3C/text%3E%3C/svg%3E">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #1a1a1a;
+      background: #f8f9fa;
+      line-height: 1.6;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .portfolio-wrapper {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    /* Header/Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-size: 48px;
+      font-weight: 700;
+      margin: 0 0 12px 0;
+      letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+      font-size: 24px;
+      font-weight: 400;
+      margin: 0 0 24px 0;
+      opacity: 0.95;
+    }
+
+    .hero-description {
+      font-size: 18px;
+      line-height: 1.7;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+    .nav-bar {
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      color: #1e3a8a;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .nav-link:hover {
+      background: #eff6ff;
+      color: #3b82f6;
+    }
+
+    /* Main Content Container */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    /* Section Styles */
+    .section {
+      background: white;
+      border-radius: 12px;
+      padding: 48px;
+      margin-bottom: 40px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin: 0 0 32px 0;
+      padding-bottom: 16px;
+      border-bottom: 3px solid #3b82f6;
+      display: inline-block;
+    }
+
+    /* About Section */
+    .about-text {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+
+    /* Education Section */
+    .education-item {
+      padding: 24px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      border-left: 4px solid #3b82f6;
+      margin-bottom: 20px;
+    }
+
+    .education-title {
+      font-size: 22px;
+      font-weight: 600;
+      color: #1e3a8a;
+      margin: 0 0 8px 0;
+    }
+
+    .education-institution {
+      font-size: 18px;
+      color: #6b7280;
+      margin: 0 0 8px 0;
+    }
+
+    .education-period {
+      font-size: 16px;
+      color: #9ca3af;
+      font-style: italic;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-category {
+      background: #f8f9fa;
+      padding: 24px;
+      border-radius: 8px;
+      border-top: 4px solid #3b82f6;
+    }
+
+    .skill-category-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1e3a8a;
+      margin: 0 0 16px 0;
+    }
+
+    .skill-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .skill-item {
+      padding: 8px 0;
+      color: #4b5563;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+    }
+
+    .skill-item:before {
+      content: "✓";
+      color: #3b82f6;
+      font-weight: bold;
+      margin-right: 12px;
+      font-size: 18px;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    .project-card {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 28px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #e5e7eb;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .project-title {
+      font-size: 22px;
+      font-weight: 600;
+      color: #1e3a8a;
+      margin: 0 0 12px 0;
+    }
+
+    .project-description {
+      font-size: 16px;
+      color: #6b7280;
+      line-height: 1.6;
+      margin: 0 0 16px 0;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tech-tag {
+      background: #3b82f6;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .contact-item {
+      background: #f8f9fa;
+      padding: 24px;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-2px);
+      background: #eff6ff;
+    }
+
+    .contact-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .contact-label {
+      font-size: 14px;
+      color: #6b7280;
+      margin: 0 0 8px 0;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .contact-value {
+      font-size: 16px;
+      color: #1e3a8a;
+      margin: 0;
+      word-break: break-word;
+    }
+
+    .contact-link {
+      color: #3b82f6;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-link:hover {
+      color: #1e3a8a;
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    .footer {
+      background: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 32px 20px;
+      margin-top: 60px;
+      width: 100%;
+    }
+
+    .footer-text {
+      margin: 0;
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 36px;
+      }
+
+      .hero-subtitle {
+        font-size: 20px;
+      }
+
+      .section {
+        padding: 32px 24px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .nav-content {
+        gap: 16px;
+      }
+
+      .projects-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="portfolio-wrapper"><!-- Hero Section -->
+   <div class="hero-section">
+    <div class="hero-content">
+     <h1 class="hero-title" id="nome-completo">João Silva</h1>
+     <p class="hero-subtitle" id="cargo">Desenvolvedor Back-end Java Sênior</p>
+     <p class="hero-description" id="sobre-intro">Especialista em desenvolvimento de aplicações robustas e escaláveis</p>
+    </div>
+   </div><!-- Navigation -->
+   <nav class="nav-bar">
+    <div class="nav-content"><a class="nav-link" onclick="scrollToSection('sobre')">Sobre Mim</a> <a class="nav-link" onclick="scrollToSection('formacao')">Formação</a> <a class="nav-link" onclick="scrollToSection('habilidades')">Habilidades</a> <a class="nav-link" onclick="scrollToSection('projetos')">Projetos</a> <a class="nav-link" onclick="scrollToSection('contato')">Contato</a>
+    </div>
+   </nav><!-- Main Content -->
+   <main class="main-content"><!-- About Section -->
+    <section id="sobre" class="section">
+     <h2 class="section-title">Sobre Mim</h2>
+     <p class="about-text" id="sobre-mim">Desenvolvedor Back-end Java com mais de 5 anos de experiência em construir sistemas empresariais escaláveis e de alta performance. Especializado em arquitetura de microsserviços, Spring Framework e desenvolvimento de APIs RESTful. Apaixonado por código limpo, boas práticas e sempre buscando aprender novas tecnologias para entregar soluções de qualidade.</p>
+    </section><!-- Education Section -->
+    <section id="formacao" class="section">
+     <h2 class="section-title">Formação Acadêmica</h2>
+     <div class="education-item">
+      <h3 class="education-title" id="formacao-titulo">Bacharelado em Ciência da Computação</h3>
+      <p class="education-institution" id="formacao-instituicao">Universidade Federal de São Paulo</p>
+      <p class="education-period">2015 - 2019</p>
+     </div>
+     <div class="education-item">
+      <h3 class="education-title">Pós-graduação em Arquitetura de Software</h3>
+      <p class="education-institution">FIAP</p>
+      <p class="education-period">2020 - 2021</p>
+     </div>
+    </section><!-- Skills Section -->
+    <section id="habilidades" class="section">
+     <h2 class="section-title">Habilidades Técnicas</h2>
+     <div class="skills-grid">
+      <div class="skill-category">
+       <h3 class="skill-category-title">Linguagens &amp; Frameworks</h3>
+       <ul class="skill-list">
+        <li class="skill-item">Java (8, 11, 17, 21)</li>
+        <li class="skill-item">Spring Boot &amp; Spring Cloud</li>
+        <li class="skill-item">Hibernate &amp; JPA</li>
+        <li class="skill-item">Maven &amp; Gradle</li>
+       </ul>
+      </div>
+      <div class="skill-category">
+       <h3 class="skill-category-title">Bancos de Dados</h3>
+       <ul class="skill-list">
+        <li class="skill-item">PostgreSQL</li>
+        <li class="skill-item">MySQL</li>
+        <li class="skill-item">MongoDB</li>
+        <li class="skill-item">Redis</li>
+       </ul>
+      </div>
+      <div class="skill-category">
+       <h3 class="skill-category-title">DevOps &amp; Cloud</h3>
+       <ul class="skill-list">
+        <li class="skill-item">Docker &amp; Kubernetes</li>
+        <li class="skill-item">AWS (EC2, S3, Lambda)</li>
+        <li class="skill-item">Jenkins &amp; GitLab CI</li>
+        <li class="skill-item">Terraform</li>
+       </ul>
+      </div>
+      <div class="skill-category">
+       <h3 class="skill-category-title">Outras Tecnologias</h3>
+       <ul class="skill-list">
+        <li class="skill-item">Microsserviços</li>
+        <li class="skill-item">APIs RESTful</li>
+        <li class="skill-item">Kafka &amp; RabbitMQ</li>
+        <li class="skill-item">JUnit &amp; Mockito</li>
+       </ul>
+      </div>
+     </div>
+    </section><!-- Projects Section -->
+    <section id="projetos" class="section">
+     <h2 class="section-title">Projetos</h2>
+     <div class="projects-grid">
+      <div class="project-card">
+       <h3 class="project-title" id="projeto1-titulo">Sistema de E-commerce</h3>
+       <p class="project-description" id="projeto1-descricao">Plataforma completa de e-commerce com arquitetura de microsserviços, processamento de pagamentos e gestão de estoque em tempo real.</p>
+       <div class="project-tech"><span class="tech-tag">Spring Boot</span> <span class="tech-tag">PostgreSQL</span> <span class="tech-tag">Docker</span> <span class="tech-tag">Kafka</span>
+       </div>
+      </div>
+      <div class="project-card">
+       <h3 class="project-title">API de Gestão Financeira</h3>
+       <p class="project-description">API RESTful para controle financeiro empresarial com autenticação JWT, relatórios automatizados e integração com bancos.</p>
+       <div class="project-tech"><span class="tech-tag">Java 17</span> <span class="tech-tag">Spring Security</span> <span class="tech-tag">MySQL</span> <span class="tech-tag">Redis</span>
+       </div>
+      </div>
+      <div class="project-card">
+       <h3 class="project-title">Sistema de Agendamentos</h3>
+       <p class="project-description">Aplicação para gerenciamento de agendamentos online com notificações em tempo real e sincronização de calendários.</p>
+       <div class="project-tech"><span class="tech-tag">Spring Boot</span> <span class="tech-tag">MongoDB</span> <span class="tech-tag">WebSocket</span> <span class="tech-tag">AWS</span>
+       </div>
+      </div>
+     </div>
+    </section><!-- Contact Section -->
+    <section id="contato" class="section">
+     <h2 class="section-title">Contato</h2>
+     <p class="about-text" style="margin-bottom: 32px;">Estou sempre aberto a discutir novos projetos e oportunidades. Entre em contato!</p>
+     <div class="contact-grid">
+      <div class="contact-item">
+       <div class="contact-icon">
+        📧
+       </div>
+       <p class="contact-label">E-mail</p>
+       <p class="contact-value"><a href="mailto:joao.silva@email.com" class="contact-link" id="email">joao.silva@email.com</a></p>
+      </div>
+      <div class="contact-item">
+       <div class="contact-icon">
+        📱
+       </div>
+       <p class="contact-label">Telefone</p>
+       <p class="contact-value" id="telefone">(11) 98765-4321</p>
+      </div>
+      <div class="contact-item">
+       <div class="contact-icon">
+        💼
+       </div>
+       <p class="contact-label">LinkedIn</p>
+       <p class="contact-value"><a href="https://linkedin.com/in/joaosilva" target="_blank" rel="noopener noreferrer" class="contact-link" id="linkedin">linkedin.com/in/joaosilva</a></p>
+      </div>
+      <div class="contact-item">
+       <div class="contact-icon">
+        💻
+       </div>
+       <p class="contact-label">GitHub</p>
+       <p class="contact-value"><a href="https://github.com/joaosilva" target="_blank" rel="noopener noreferrer" class="contact-link" id="github">github.com/joaosilva</a></p>
+      </div>
+     </div>
+    </section>
+   </main><!-- Footer -->
+   <footer class="footer">
+    <p class="footer-text">© 2024 - Desenvolvido com dedicação</p>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      nome_completo: "João Silva",
+      cargo: "Desenvolvedor Back-end Java Sênior",
+      sobre_mim: "Desenvolvedor Back-end Java com mais de 5 anos de experiência em construir sistemas empresariais escaláveis e de alta performance. Especializado em arquitetura de microsserviços, Spring Framework e desenvolvimento de APIs RESTful. Apaixonado por código limpo, boas práticas e sempre buscando aprender novas tecnologias para entregar soluções de qualidade.",
+      formacao_titulo: "Bacharelado em Ciência da Computação",
+      formacao_instituicao: "Universidade Federal de São Paulo",
+      projeto1_titulo: "Sistema de E-commerce",
+      projeto1_descricao: "Plataforma completa de e-commerce com arquitetura de microsserviços, processamento de pagamentos e gestão de estoque em tempo real.",
+      email: "joao.silva@email.com",
+      telefone: "(11) 98765-4321",
+      linkedin: "linkedin.com/in/joaosilva",
+      github: "github.com/joaosilva",
+      background_color: "#f8f9fa",
+      primary_color: "#1e3a8a",
+      secondary_color: "#3b82f6",
+      text_color: "#1a1a1a",
+      surface_color: "#ffffff"
+    };
+
+    async function onConfigChange(config) {
+      document.getElementById('nome-completo').textContent = config.nome_completo || defaultConfig.nome_completo;
+      document.getElementById('cargo').textContent = config.cargo || defaultConfig.cargo;
+      
+      const sobreIntro = document.getElementById('sobre-intro');
+      const sobreMim = config.sobre_mim || defaultConfig.sobre_mim;
+      sobreIntro.textContent = sobreMim.substring(0, 80) + (sobreMim.length > 80 ? '...' : '');
+      
+      document.getElementById('sobre-mim').textContent = config.sobre_mim || defaultConfig.sobre_mim;
+      document.getElementById('formacao-titulo').textContent = config.formacao_titulo || defaultConfig.formacao_titulo;
+      document.getElementById('formacao-instituicao').textContent = config.formacao_instituicao || defaultConfig.formacao_instituicao;
+      document.getElementById('projeto1-titulo').textContent = config.projeto1_titulo || defaultConfig.projeto1_titulo;
+      document.getElementById('projeto1-descricao').textContent = config.projeto1_descricao || defaultConfig.projeto1_descricao;
+      
+      const emailElement = document.getElementById('email');
+      const emailValue = config.email || defaultConfig.email;
+      emailElement.textContent = emailValue;
+      emailElement.href = `mailto:${emailValue}`;
+      
+      document.getElementById('telefone').textContent = config.telefone || defaultConfig.telefone;
+      
+      const linkedinElement = document.getElementById('linkedin');
+      const linkedinValue = config.linkedin || defaultConfig.linkedin;
+      linkedinElement.textContent = linkedinValue;
+      linkedinElement.href = linkedinValue.startsWith('http') ? linkedinValue : `https://${linkedinValue}`;
+      
+      const githubElement = document.getElementById('github');
+      const githubValue = config.github || defaultConfig.github;
+      githubElement.textContent = githubValue;
+      githubElement.href = githubValue.startsWith('http') ? githubValue : `https://${githubValue}`;
+
+      // Apply colors
+      const backgroundColor = config.background_color || defaultConfig.background_color;
+      const primaryColor = config.primary_color || defaultConfig.primary_color;
+      const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+
+      document.body.style.background = backgroundColor;
+      document.body.style.color = textColor;
+
+      const heroSection = document.querySelector('.hero-section');
+      heroSection.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
+
+      document.querySelectorAll('.section').forEach(section => {
+        section.style.background = surfaceColor;
+      });
+
+      document.querySelectorAll('.section-title').forEach(title => {
+        title.style.color = primaryColor;
+        title.style.borderBottomColor = secondaryColor;
+      });
+
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.style.color = primaryColor;
+      });
+
+      document.querySelectorAll('.tech-tag').forEach(tag => {
+        tag.style.background = secondaryColor;
+      });
+
+      document.querySelectorAll('.contact-link').forEach(link => {
+        link.style.color = secondaryColor;
+      });
+
+      document.querySelector('.footer').style.background = primaryColor;
+    }
+
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            },
+            {
+              get: () => config.surface_color || defaultConfig.surface_color,
+              set: (value) => {
+                config.surface_color = value;
+                window.elementSdk.setConfig({ surface_color: value });
+              }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            },
+            {
+              get: () => config.primary_color || defaultConfig.primary_color,
+              set: (value) => {
+                config.primary_color = value;
+                window.elementSdk.setConfig({ primary_color: value });
+              }
+            },
+            {
+              get: () => config.secondary_color || defaultConfig.secondary_color,
+              set: (value) => {
+                config.secondary_color = value;
+                window.elementSdk.setConfig({ secondary_color: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ["nome_completo", config.nome_completo || defaultConfig.nome_completo],
+          ["cargo", config.cargo || defaultConfig.cargo],
+          ["sobre_mim", config.sobre_mim || defaultConfig.sobre_mim],
+          ["formacao_titulo", config.formacao_titulo || defaultConfig.formacao_titulo],
+          ["formacao_instituicao", config.formacao_instituicao || defaultConfig.formacao_instituicao],
+          ["projeto1_titulo", config.projeto1_titulo || defaultConfig.projeto1_titulo],
+          ["projeto1_descricao", config.projeto1_descricao || defaultConfig.projeto1_descricao],
+          ["email", config.email || defaultConfig.email],
+          ["telefone", config.telefone || defaultConfig.telefone],
+          ["linkedin", config.linkedin || defaultConfig.linkedin],
+          ["github", config.github || defaultConfig.github]
+        ])
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9aad2d97868b120f',t:'MTc2NTIwNjUwNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
