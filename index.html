@@ -3,81 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Pedro Luiz">
+    <meta name="keywords" content="Pedro Luiz, Portfólio">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/mobile.css">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/icons/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="scripts/script.js" defer></script>
     <title>Pedro Luiz</title>
 </head>
 <body>
     <header>
-        <figure class="icone">
-            <img src="images/Pedro.png" alt="Pedro (eu :D)">
-        </figure>
-        <h1>Pedro Luiz Costa Batista</h1>
-        <p>Desenvolvedor Back-End de Java</p>
+        <img src="images/icons/icone.png" alt="Icone">
+        <nav>
+            <a href="#sobre">Sobre</a>
+            <a href="#skills">Habilidades</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#experiencia">Formação</a>
+            <a href="#contato">Contato</a>
+        </nav>
+        <button id="mudar-tema">
+            <img src="images/icons/modoclaro.svg" alt="Icone de modo claro">
+            <img src="images/icons/modoescuro.svg" alt="Icone de modo escuro">
+        </button>
     </header>
     <main>
-        <section class="sobre-mim">
-            <h1 class="section-titulo">Sobre Mim</h1>
-            <p>Olá! Me chamo Pedro Luiz, sou um programador curioso, dedicado e apaixonado em aprender. Desde pequeno, sempre estive muito próximo de computadores, ocasionando em um interesse pela área de tecnologia. Comecei minha jornada de desenvolvedor back-end no inicio de 2025, desde então, venho aprimorando minhas habilidades, solucionando problemas, fazendo pequenos projetos e sempre buscando aprender novas tecnologias.</p>
-        </section>
-        <section class="habilidades-tecnicas">
-            <h1 class="section-titulo">Habilidades Técnicas</h1>
-            <div class="habilidades-grid">
-                <div class="habilidades-categoria">
-                    <h3>Linguagens</h3>
-                    <ul>
-                        <li>Java</li>
-                        <li>Python</li>
-                        <li>MySQL</li>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                    </ul>
+        <section id="introducao">
+            <div id="estilo-introducao">
+                <div id="informacoes">
+                    <h1>Olá, eu sou</h1>
+                    <h1 id="destaque">Pedro Luiz</h1>
+                    <h2>Desenvolvedor Back-end Java</h2>
+                    <p>Engenheiro de software especializando em construir softwares robustos e escaláveis com Java</p>
+                    <section id="botoes">
+                        <a href="#projetos" id="botaoprojetos">Ver projetos</a>
+                        <a href="#contato" id="botaocontato">Contato</a>
+                    </section>
                 </div>
-                <div class="habilidades-categoria">
-                    <h3>Ferramentas</h3>
-                    <ul>
-                        <li>Git & GitHub</li>
-                        <li>Visual Studio Code</li>
-                    </ul>
+                <img id="foto" src="images/Pedro.png" alt="Pedro (eu :D)">
+            </div>
+        </section>
+        <section id="sobre">
+            <div id="estilo-sobre">
+                <div class="subtitulos">
+                    <strong>01.</strong>
+                    <h2>Sobre Mim</h2>
+                    <div></div>
+                </div>
+                <p>Sou um programador curioso, dedicado e apaixonado em aprender. Desde pequeno, sempre estive muito próximo de computadores, ocasionando em um interesse pela área de tecnologia.</p>
+                <p>Comecei minha jornada de desenvolvedor back-end no inicio de 2025, desde então, venho aprimorando minhas habilidades, solucionando problemas, fazendo pequenos projetos e sempre buscando aprender novas tecnologias.</p>
+            </div>
+        </section>
+        <section id="skills">
+            <div id="estilo-skills">
+                <div class="subtitulos">
+                    <strong>02.</strong>
+                    <h2>Habilidades Tecnicas</h2>
+                    <div></div>
+                </div>
+                <div id="habilidades-grid">
+                    <a href="https://www.java.com/pt-br/" target="_blank" class="cartao-skills" data-gif-src="images/animation/java.gif">
+                        <img src="images/icons/javaicon.png" alt="Icone do Java">
+                        <p>Java</p>
+                    </a>
+                    <a href="https://www.python.org/" target="_blank" class="cartao-skills" data-gif-src="images/animation/python.gif">
+                        <img src="images/icons/pythonicon.png" alt="Icone do Python">
+                        <p>Python</p>
+                    </a>
+                    <a href="https://www.mysql.com/" target="_blank" class="cartao-skills" data-gif-src="images/animation/mysql.gif">
+                        <img src="images/icons/mysqlicon.png" alt="Icone do MySQL">
+                        <p>MySQL</p>
+                    </a>
+                    <a href="https://git-scm.com/" target="_blank" class="cartao-skills" data-gif-src="images/animation/git.gif">
+                        <img src="images/icons/giticon.png" alt="Icone do Git">
+                        <p>Git</p>
+                    </a>
+                    <a href="https://html.spec.whatwg.org/multipage/" target="_blank" class="cartao-skills" data-gif-src="images/animation/html.gif">
+                        <img src="images/icons/htmlicon.png" alt="Icone do HTML">
+                        <p>HTML</p>
+                    </a>
+                    <a href="https://www.w3.org/Style/CSS/Overview.en.html" target="_blank" class="cartao-skills" data-gif-src="images/animation/css.gif">
+                        <img src="images/icons/cssicon.png" alt="Icone do CSS">
+                        <p>CSS</p>
+                    </a>
                 </div>
             </div>
         </section>
-        <section class="formacao">
-            <h1 class="section-titulo">Formação Acadêmica</h1>
-            <div>
-                <a class="cartao" href="https://www.fiemg.com.br/unidades/senai-centro-de-treinamento-da-tecnologia-da-informacao-ctti/" target="_blank">
-                    <h3 class="titulo">Desenvolvimento de Sistemas</h3>
-                    <p class="instituicao">SENAI Centro de Treinamento da Tecnologia da Informação - CTTI Minas Gerais</p>
-                    <p class="periodo">2025 - 2026</p>
-                </a>       
+        <section id="projetos">
+            <div id="estilo-projetos">
+                <div class="subtitulos">
+                    <strong>03.</strong>
+                    <h2>Projetos</h2>
+                    <div></div>
+                </div>
+                <p>Em breve :)</p>
             </div>
         </section>
-        <section class="projetos">
-            <h1 class="section-titulo">Projetos</h1>
-            <p>Em breve :)</p>
+        <section id="experiencia">
+            <div id="estilo-formacao">
+                <div class="subtitulos">
+                    <strong>04.</strong>
+                    <h2>Formação Academica</h2>
+                    <div></div>
+                </div>
+                <div class="formacao">
+                    <div class="ponto-linha">
+                        <div class="dot"></div>
+                        <div class="linha"></div>
+                    </div>
+                    <div class="cartao">
+                        <h3 class="titulo-curso">Desenvolvimento de Sistemas</h3>
+                        <p class="instituicao">SENAI Centro de Treinamento da Tecnologia da Informação • 2025 - 2026</p>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section class="contatos">
-            <h1 class="section-titulo">Contatos</h1>
-            <p>Estou sempre aberto a discutir novos projetos e oportunidades. Entre em contato!</p>
-            <div class="contatos-grid">
-                <a onclick="javascript:window.open('mailto:pl259647@gmail.com');event.preventDefault()" href="">
-                    <img src="images/gmail.png" alt="Gmail logo">
-                    <p>E-mail</p>
-                </a>
-                <a href="https://github.com/pedroluiz289" target="_blank">
-                    <img src="images/github-mark.svg" alt="GitHub logo">
-                    <p>GitHub</p>
-                </a>
-                <a href="https://www.linkedin.com/in/pedroluizcostabatista/" target="_blank">
-                    <img src="images/LI-In-Bug.png" alt="Linkedin Logo">
-                    <p>LinkedIn</p>
-                </a>
+        <section id="contato">
+            <div id="estilo-contato">
+                <div class="subtitulos">
+                    <strong>05.</strong>
+                    <h2>Contato</h2>
+                    <div></div>
+                </div>
+                <p>Estou sempre aberto a discutir novos projetos e oportunidades!</p>
+                <div id="contatos-grid">
+                    <a href="" onclick="abrirEmail()">
+                        <img src="images/icons/email.svg" alt="Icone de e-mail">
+                        <p>E-mail</p>
+                    </a>
+                    <a href="https://github.com/pedroluiz289" target="_blank">
+                        <img src="images/icons/github-mark.svg" alt="Icone do GitHub">
+                        <p>GitHub</p>
+                    </a>
+                    <a href="https://www.linkedin.com/in/pedroluizcostabatista/" target="_blank">
+                        <img src="images/icons/LI-In-Bug.png" alt="Icone do LinkedIn">
+                        <p>LinkedIn</p>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
     <footer>
-        <p>&copy; Pedro Luiz 2025</p>
+        <p>&copy; Pedro Luiz 2026. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>

@@ -1,21 +1,39 @@
 @media (max-width: 768px) {
-    header > h1 {
-        font-size: 36px;
+    header > nav {
+        display: none;
     }
 
-    header > p {
+    #estilo-introducao {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    #botoes {
+        align-items: center;
+        justify-content: center;
+    }
+
+    #foto {
+        order: -1;
+        margin-bottom: 80px;
+    }
+
+    .subtitulos {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .subtitulos > strong {
         font-size: 20px;
     }
 
-    .sobre-mim, .habilidades-tecnicas, .formacao, .projetos, .contatos {
-        padding: 32px 24px;
+    .subtitulos > h2 {
+        font-size: 25px;
     }
 
-    .section-titulo {
-        font-size: 28px;
-    }
-
-    .contatos-grid {
-        grid-template-columns: 1fr;
+    #projetos {
+        scroll-margin-top: 250px;
     }
 }
