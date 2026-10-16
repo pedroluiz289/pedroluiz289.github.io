@@ -3,37 +3,209 @@
         display: none;
     }
 
+    #mudar-tema {
+        transition: none;
+    }
+
+    #mudar-tema:hover {
+        border-color: var(--cor-borda);
+    }
+
+    #mudar-tema:active {
+        border-color: var(--cor-primaria);
+    }
+
     #estilo-introducao {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         text-align: center;
+        gap: 10vw;
+    }
+
+    #informacoes > h1 {
+        font-size: 12vw;
+    }
+
+    #informacoes > h2 {
+        text-align: center;
+        font-size: 4.5vw;
+    }
+
+    #informacoes > p {
+        font-size: 4vw;
+        text-align: center;
+        max-width: fit-content;
     }
 
     #botoes {
         align-items: center;
         justify-content: center;
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 36px;
+    }
+
+    #botao-projetos,
+    #botao-contato {
+        width: 100%;
+        font-size: 4vw;
+        padding: 4.5vw;
+        transition: none;
+    }
+
+    #botao-projetos:hover {
+        box-shadow: none;
+    }
+
+    #botao-projetos:active {
+         background-image: none;
+         background-color: #2757A7;
+    }
+    
+    .modo-escuro #botao-contato:hover {
+        color: white;
+        border-color: white;
+    }
+
+    #botao-contato:hover {
+        color: black;
+        border-color: black;
+    }
+
+    #botao-contato:active,
+    .modo-escuro #botao-contato:active {
+        color: var(--cor-primaria);
+        border-color: var(--cor-primaria);
     }
 
     #foto {
         order: -1;
-        margin-bottom: 80px;
+        width: 70vw;
     }
 
     .subtitulos {
+        gap: 5vw;
         justify-content: center;
-        align-items: center;
-        text-align: center;
-        gap: 15px;
     }
 
     .subtitulos > strong {
-        font-size: 20px;
+        font-size: 5vw;
     }
 
     .subtitulos > h2 {
-        font-size: 25px;
+        font-size: 6vw;
+    }
+
+    .subtitulos > div {
+        display: none;
+    }
+
+    #estilo-sobre > p,
+    #estilo-projetos > p {
+        font-size: 4vw;
+    }
+
+    .formacoes {
+        border-left: none;
+        gap: 40px;
+    }
+
+    .formacao {
+        margin-left: 0px;
+        text-align: center;
+    }
+
+    .formacao:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 100%;
+        width: 2px;
+        height: 40px;
+        background-color: var(--cor-primaria);
+    }
+
+    .cartao::before {
+        content: none;
+    }
+
+    .titulo-curso {
+        margin-bottom: 15px;
+        font-size: 4.5vw;
+    }
+
+    .instituicao {
+        line-height: 1.8;
+        font-size: 3.5vw;
+    }
+
+    #estilo-contato > .subtitulos {
+        margin-bottom: 30px;
+    }
+
+    #habilidades-grid {
+        grid-template-columns: none;
+    }
+
+    .cartao-skills {
+        transition: none;
+    }
+
+    .cartao-skills:hover {
+        background-color: var(--cor-superfice);
+    }
+
+    .cartao-skills:active {
+        background-color: rgba(59, 130, 246, 0.2);
+    }
+
+    .cartao-skills > img {
+        width: 25vw;
+    }
+
+    .ponto-linha {
+        position: absolute; 
+        top: 24px;
+        left: 50%;
+        right: 50%;
+        bottom: -50px;
+        z-index: 1;
+    }
+
+    .ponto {
+        display: none;
+    }
+
+    .cartao {
+        position: relative;
+        z-index: 1;
     }
 
     #projetos {
         scroll-margin-top: 250px;
+    }
+
+    #estilo-contato > p {
+        font-size: 4vw;
+    }
+
+    #contatos-grid > a {
+        transition: none;
+    }
+
+    #contatos-grid > a:hover {
+        border-color: var(--cor-borda);
+    }
+
+    #contatos-grid > a:active {
+        border-color: var(--cor-segundaria);
+    }
+
+    #contatos-grid > a > img {
+        width: 20vw;
+    }
+
+    footer > p {
+        font-size: 3.5vw;
     }
 }

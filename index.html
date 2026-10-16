@@ -21,13 +21,12 @@
             <a href="#experiencia">Formação</a>
             <a href="#contato">Contato</a>
         </nav>
-        <button id="mudar-tema">
-            <img src="images/icons/modoclaro.svg" alt="Icone de modo claro">
-            <img src="images/icons/modoescuro.svg" alt="Icone de modo escuro">
+        <button id="mudar-tema" onclick="mudarTema()">
+            <span id="icone-mudar-tema" class="material-symbols-outlined">rotate_auto</span>
         </button>
     </header>
     <main>
-        <section id="introducao">
+        <section id="introducao" class="card">
             <div id="estilo-introducao">
                 <div id="informacoes">
                     <h1>Olá, eu sou</h1>
@@ -35,14 +34,14 @@
                     <h2>Desenvolvedor Back-end Java</h2>
                     <p>Engenheiro de software especializando em construir softwares robustos e escaláveis com Java</p>
                     <section id="botoes">
-                        <a href="#projetos" id="botaoprojetos">Ver projetos</a>
-                        <a href="#contato" id="botaocontato">Contato</a>
+                        <a href="#projetos" id="botao-projetos">Ver projetos</a>
+                        <a href="#contato" id="botao-contato">Contato</a>
                     </section>
                 </div>
                 <img id="foto" src="images/Pedro.png" alt="Pedro (eu :D)">
             </div>
         </section>
-        <section id="sobre">
+        <section id="sobre" class="card">
             <div id="estilo-sobre">
                 <div class="subtitulos">
                     <strong>01.</strong>
@@ -53,7 +52,7 @@
                 <p>Comecei minha jornada de desenvolvedor back-end no inicio de 2025, desde então, venho aprimorando minhas habilidades, solucionando problemas, fazendo pequenos projetos e sempre buscando aprender novas tecnologias.</p>
             </div>
         </section>
-        <section id="skills">
+        <section id="skills" class="card">
             <div id="estilo-skills">
                 <div class="subtitulos">
                     <strong>02.</strong>
@@ -61,34 +60,38 @@
                     <div></div>
                 </div>
                 <div id="habilidades-grid">
-                    <a href="https://www.java.com/pt-br/" target="_blank" class="cartao-skills" data-gif-src="images/animation/java.gif">
-                        <img src="images/icons/javaicon.png" alt="Icone do Java">
+                    <a href="https://www.java.com/pt-br/" target="_blank" class="cartao-skills">
+                        <img src="images/animation/java.webp" alt="Icone do Java">
                         <p>Java</p>
                     </a>
-                    <a href="https://www.python.org/" target="_blank" class="cartao-skills" data-gif-src="images/animation/python.gif">
-                        <img src="images/icons/pythonicon.png" alt="Icone do Python">
-                        <p>Python</p>
+                    <a href="https://spring.io/projects/spring-boot" target="_blank" class="cartao-skills">
+                        <img src="images/animation/spring-boot.webp" alt="Icone do Spring Boot">
+                        <p>Spring Boot</p>
                     </a>
-                    <a href="https://www.mysql.com/" target="_blank" class="cartao-skills" data-gif-src="images/animation/mysql.gif">
-                        <img src="images/icons/mysqlicon.png" alt="Icone do MySQL">
+                    <a href="https://www.mysql.com/" target="_blank" class="cartao-skills">
+                        <img src="images/animation/mysql.webp" alt="Icone do MySQL">
                         <p>MySQL</p>
                     </a>
-                    <a href="https://git-scm.com/" target="_blank" class="cartao-skills" data-gif-src="images/animation/git.gif">
-                        <img src="images/icons/giticon.png" alt="Icone do Git">
+                    <a href="https://git-scm.com/" target="_blank" class="cartao-skills">
+                        <img src="images/animation/git.webp" alt="Icone do Git">
                         <p>Git</p>
                     </a>
-                    <a href="https://html.spec.whatwg.org/multipage/" target="_blank" class="cartao-skills" data-gif-src="images/animation/html.gif">
-                        <img src="images/icons/htmlicon.png" alt="Icone do HTML">
+                    <a href="https://www.usebruno.com/" target="_blank" class="cartao-skills">
+                        <img src="images/animation/bruno.webp" alt="Icone do Bruno API">
+                        <p>Bruno API</p>
+                    </a>
+                    <a href="https://html.spec.whatwg.org/multipage/" target="_blank" class="cartao-skills">
+                        <img src="images/animation/html5.webp" alt="Icone do HTML">
                         <p>HTML</p>
                     </a>
-                    <a href="https://www.w3.org/Style/CSS/Overview.en.html" target="_blank" class="cartao-skills" data-gif-src="images/animation/css.gif">
-                        <img src="images/icons/cssicon.png" alt="Icone do CSS">
+                    <a href="https://www.w3.org/Style/CSS/Overview.en.html" target="_blank" class="cartao-skills">
+                        <img src="images/animation/css.webp" alt="Icone do CSS">
                         <p>CSS</p>
                     </a>
                 </div>
             </div>
         </section>
-        <section id="projetos">
+        <section id="projetos" class="card">
             <div id="estilo-projetos">
                 <div class="subtitulos">
                     <strong>03.</strong>
@@ -98,26 +101,24 @@
                 <p>Em breve :)</p>
             </div>
         </section>
-        <section id="experiencia">
+        <section id="experiencia" class="card">
             <div id="estilo-formacao">
                 <div class="subtitulos">
                     <strong>04.</strong>
                     <h2>Formação Academica</h2>
                     <div></div>
                 </div>
-                <div class="formacao">
-                    <div class="ponto-linha">
-                        <div class="dot"></div>
-                        <div class="linha"></div>
-                    </div>
-                    <div class="cartao">
-                        <h3 class="titulo-curso">Desenvolvimento de Sistemas</h3>
-                        <p class="instituicao">SENAI Centro de Treinamento da Tecnologia da Informação • 2025 - 2026</p>
+                <div class="formacoes">
+                    <div class="formacao">
+                        <div class="cartao">
+                            <h3 class="titulo-curso">Desenvolvimento de Sistemas</h3>
+                            <p class="instituicao">SENAI Centro de Treinamento da Tecnologia da Informação • 2025 - 2026</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="contato">
+        <section id="contato" class="card">
             <div id="estilo-contato">
                 <div class="subtitulos">
                     <strong>05.</strong>
@@ -127,16 +128,16 @@
                 <p>Estou sempre aberto a discutir novos projetos e oportunidades!</p>
                 <div id="contatos-grid">
                     <a href="" onclick="abrirEmail()">
-                        <img src="images/icons/email.svg" alt="Icone de e-mail">
-                        <p>E-mail</p>
+                        <img src="images/animation/email.webp" alt="Icone de e-mail">
+                        <p class="contato-titulo">E-mail</p>
                     </a>
                     <a href="https://github.com/pedroluiz289" target="_blank">
-                        <img src="images/icons/github-mark.svg" alt="Icone do GitHub">
-                        <p>GitHub</p>
+                        <img src="images/animation/github.webp" alt="Icone do GitHub">
+                        <p class="contato-titulo">GitHub</p>
                     </a>
                     <a href="https://www.linkedin.com/in/pedroluizcostabatista/" target="_blank">
-                        <img src="images/icons/LI-In-Bug.png" alt="Icone do LinkedIn">
-                        <p>LinkedIn</p>
+                        <img src="images/animation/linkedin.webp" alt="Icone do LinkedIn">
+                        <p class="contato-titulo">LinkedIn</p>
                     </a>
                 </div>
             </div>

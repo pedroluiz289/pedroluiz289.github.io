@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dark_mode,light_mode,night_sight_auto,light_mode_auto");
+
 @font-face {
     font-family: "OpenSans";
     src: url("../fonts/OpenSans.ttf"), format("truetype");
@@ -10,31 +12,36 @@
 }
 
 :root {
-    --cor-texto: #18181B;
+    --fonte-primaria: "OpenSans", sans-serif;
+    --fonte-segundaria: "JetBrainsMono", sans-serif;
+
     --cor-primaria: #3B82F6;
     --cor-segundaria: #60A5FA;
     --cor-terciaria: #3473D8;
+    
+    --cor-texto-geral: #18181B;
     --cor-fundo: #F8F9FA;
     --cor-superfice: #FFFFFF;
     --cor-borda: #0000001A;
-    --icone-claro: "";
 }
 
 .modo-escuro {
-    --cor-texto: white;
-    --cor-primaria: #3B82F6;
-    --cor-segundaria: #60A5FA;
-    --cor-terciaria: #3473D8;
+    --cor-texto-geral: white;
     --cor-fundo: #0A0A0F;
     --cor-superfice: #12121A;
     --cor-borda: #FFFFFF40;
 }
 
-body {
-    color: var(--cor-texto);
-    background-color: #f8f9fa;
-    font-family: 'OpenSans', sans-serif;
+* {
     margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: var(--fonte-primaria);
+}
+
+body {
+    color: var(--cor-texto-geral);
+    background-color: var(--cor-fundo);
 }
 
 header {
@@ -55,10 +62,10 @@ nav {
 }
 
 nav > a {
-    color: var(--cor-texto);
+    color: var(--cor-texto-geral);
     font-weight: 500;
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 0.15s ease-in-out;
 }
 
 nav > a:hover {
@@ -66,6 +73,8 @@ nav > a:hover {
 }
 
 #mudar-tema {
+    width: 46px;
+    height: 46px;
     cursor: pointer;
     display: flex;
     background-color: var(--cor-fundo);
@@ -74,43 +83,46 @@ nav > a:hover {
     padding: 12px;
     justify-content: center;
     align-items: center;
-    height: 46px;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.2s ease-in-out;
+}
+
+#mudar-tema > span {
+    color: black;
+    font-size: 20px;
+}
+
+.modo-escuro #mudar-tema > span{
+    color: white;
 }
 
 #mudar-tema:hover {
     border-color: var(--cor-primaria);
 }
 
-#mudar-tema > img:last-child {
-    display: none;
-}
-
-.modo-escuro #mudar-tema > img:first-child {
-    display: none;
-}
-
-.modo-escuro #mudar-tema > img:last-child {
-    display: block;
-}
-
-#introducao {
+.card:nth-child(odd) {
     background-color: var(--cor-fundo);
+    scroll-margin-top: 85px;
+    padding: 96px 24px;
+}
+
+.card:nth-child(even) {
+    background-color: var(--cor-superfice);
+    scroll-margin-top: 85px;
+    padding: 96px 24px;
 }
 
 #estilo-introducao {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
     align-items: center;
-    padding: 80px 24px;
+    gap: 10vw;
+    justify-content: space-between;
     max-width: 1100px;
-    margin: auto;
+    margin: 0px auto;
 }
 
 #informacoes > h1 {
     font-size: 60px;
-    margin: 0px;
-    line-height: 1.1em;
+    line-height: 1.2em;
 }
 
 #destaque {
@@ -118,40 +130,38 @@ nav > a:hover {
 }
 
 #informacoes > h2 {
-    font-family: "JetBrainsMono", sans-serif;
+    font-family: var(--fonte-segundaria);
+    margin-top: 24px;
 }
 
 #informacoes > p {
-    color: var(--cor-texto);
+    color: var(--cor-texto-geral);
     font-size: 18px;
     opacity: 0.7;
-    margin-top: 24px;
-    margin-bottom: 32px;
+    max-width: 425px;
+    margin: 24px 0px;
 }
 
 #botoes {
     display: flex;
-    margin-top: 16px;
     gap: 16px;
 }
 
-#botaoprojetos {
+#botao-projetos {
     background-image: linear-gradient(135deg, var(--cor-primaria), var(--cor-segundaria));
-    box-shadow: 0px 8px 10px rgba(59, 130, 246, 0);
     text-decoration: none;
     color: white;
     border-radius: 8px;
     padding: 12px 32px;
     font-weight: 600;
-    transition: box-shadow, transform, 0.3s ease;
+    transition: box-shadow 0.2s ease-in-out;
 }
 
-#botaoprojetos:hover {
-    transform: translateY(-2px);
-    box-shadow: 0px 5px 10px rgba(59, 130, 246, 0.35);
+#botao-projetos:hover {
+    box-shadow: 0px 0px 16px 2px rgba(59, 130, 246, 0.5);
 }
 
-#botaocontato {
+#botao-contato {
     background-color: transparent;
     text-decoration: none;
     color: black;
@@ -159,36 +169,28 @@ nav > a:hover {
     border-radius: 8px;
     padding: 12px 32px;
     font-weight: 600;
-    transition: border, color, 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color, color, 0.2s ease-in-out;
 }
 
-.modo-escuro #botaocontato {
+.modo-escuro #botao-contato {
     color: white;
     border-color: white;
 }
 
-#botaocontato:hover {
-    border: 1px solid var(--cor-primaria);
+#botao-contato:hover {
+    border-color: var(--cor-primaria);
     color: var(--cor-primaria);
 }
 
 #foto {
     display: block;
-    width: 285px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 325px;
     border: 5px solid var(--cor-primaria);
     box-shadow: 0px 0px 15px rgba(59, 130, 246, 0.25);
     border-radius: 25px;
 }
 
-#sobre {
-    background-color: var(--cor-superfice);
-    scroll-margin-top: 25px;
-}
-
 #estilo-sobre {
-    padding: 96px 24px;
     margin: auto;
     max-width: 1100px;
     text-align: justify;
@@ -203,7 +205,7 @@ nav > a:hover {
 
 .subtitulos > strong {
     font-size: 24px;
-    font-family: "JetBrainsMono", sans-serif;
+    font-family: var(--fonte-segundaria);
     color: var(--cor-primaria);
 }
 
@@ -219,16 +221,11 @@ nav > a:hover {
 }
 
 #estilo-sobre > p {
-    color: var(--cor-texto);
+    color: var(--cor-texto-geral);
     font-size: 18px;
-    line-height: 1.625;
+    line-height: 1.8;
+    margin: 20px 0px;
     opacity: 0.7;
-}
-
-#skills {
-    background-color: var(--cor-fundo);
-    padding: 96px 24px;
-    scroll-margin-top: 25px;
 }
 
 #estilo-skills {
@@ -249,7 +246,7 @@ nav > a:hover {
     text-align: center;
     padding: 16px;
     text-decoration: none;
-    color: var(--cor-texto);
+    color: var(--cor-texto-geral);
     transition: background-color 0.2s ease;
 }
 
@@ -257,16 +254,14 @@ nav > a:hover {
     background-color: rgba(59, 130, 246, 0.2);
 }
 
-.cartao-skills > p {
-    font-weight: 500;
-    font-family: "JetBrainsMono", sans-serif;
-    margin: 8px 0px 0px 0px;
+.cartao-skills > img {
+    width: 98px;
 }
 
-#projetos {
-    background-color: var(--cor-superfice);
-    scroll-margin-top: 25px;
-    padding: 96px 24px;
+.cartao-skills > p {
+    font-weight: 500;
+    font-family: var(--fonte-segundaria);
+    margin: 8px 0px 0px 0px;
 }
 
 #estilo-projetos {
@@ -280,42 +275,20 @@ nav > a:hover {
     text-align: center;
 }
 
-#experiencia {
-    background-color: var(--cor-fundo);
-    padding: 96px 24px;
-    scroll-margin-top: 25px;
-}
-
 #estilo-formacao {
     margin: auto;
     max-width: 1100px;
 }
 
-.formacao {
+.formacoes {
     display: flex;
-    position: relative;
-    gap: 24px;
-}
-
-.ponto-linha {
-    display: flex;
-    align-items: center;
     flex-direction: column;
+    gap: 25px;
+    border-left: 2px solid var(--cor-segundaria);
 }
 
-.dot {
-    width: 16px;
-    height: 16px;
-    position: relative;
-    border: 3px solid var(--cor-segundaria);
-    flex-shrink: 0;
-    border-radius: 50%;
-}
-
-.linha {
-    background-image: linear-gradient(to bottom, var(--cor-segundaria), transparent);
-    width: 2px;
-    height: 100%;
+.formacao {
+    margin-left: 25px;
     position: relative;
 }
 
@@ -325,28 +298,33 @@ nav > a:hover {
     border-radius: 12px;
     padding: 24px;
     width: 100%;
-    transition: border-color 0.25s ease;
+    transition: border-color 0.15s ease-in-out;
 }
 
 .cartao:hover {
     border-color: var(--cor-segundaria);
 }
 
+.cartao::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -35px;
+    top: 0px;
+    border: 3px solid var(--cor-segundaria);
+    background-color: var(--cor-superfice);
+    border-radius: 50%;
+}
+
 .titulo-curso {
-    margin: 0px;
+    margin-bottom: 5px;
     font-size: 20px;
 }
 
 .instituicao {
-    margin: 4px 0px 8px 0px;
     font-weight: 500;
     color: var(--cor-terciaria);
-}
-
-#contato {
-    background-color: var(--cor-superfice);
-    scroll-margin-top: 25px;
-    padding: 96px 24px;
 }
 
 #estilo-contato {
@@ -355,9 +333,10 @@ nav > a:hover {
 }
 
 #estilo-contato > p {
+    opacity: 0.7;
     font-size: 20px;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 48px;
 }
 
 #contatos-grid {
@@ -370,13 +349,10 @@ nav > a:hover {
     display: block;
     border: 1px solid var(--cor-borda);
     border-radius: 12px;
-    color: var(--cor-texto);
-    font-family: "JetBrainsMono", sans-serif;
-    font-weight: 500;
     text-decoration: none;
     padding: 24px;
     text-align: center;
-    transition: border-color 0.25s ease;
+    transition: border-color 0.15s ease-in-out;
 }
 
 #contatos-grid > a:hover {
@@ -384,7 +360,14 @@ nav > a:hover {
 }
 
 #contatos-grid > a > img {
-    width: 50px;
+    width: 70px;
+}
+
+.contato-titulo {
+    font-family: var(--fonte-segundaria);
+    font-weight: 500;
+    margin-top: 16px;
+    color: var(--cor-texto-geral);
 }
 
 footer {
@@ -394,8 +377,8 @@ footer {
 }
 
 footer > p {
-    font-family: "JetBrainsMono", sans-serif;
-    opacity: 0.6;
+    font-family: var(--fonte-segundaria);
+    opacity: 0.7;
     margin: 0px;
     text-align: center;
 }
